@@ -1,0 +1,107 @@
+/* Nord color palette */
+:root {
+    --nord0: #2e3440;
+    --nord1: #3b4252;
+    --nord2: #434c5e;
+    --nord3: #4c566a;
+    --nord4: #d8dee9;
+    --nord5: #e5e9f0;
+    --nord6: #eceff4;
+    --nord7: #8fbcbb;
+    --nord8: #88c0d0;
+    --nord9: #81a1c1;
+    --nord10: #5e81ac;
+    --nord11: #bf616a;
+    --nord12: #d08770;
+    --nord13: #ebcb8b;
+    --nord14: #a3be8c;
+    --nord15: #b48ead;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--nord0);
+    color: var(--nord6);
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: var(--nord1);
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+nav a {
+    color: var(--nord6);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--nord7);
+}
+
+h1, h2 {
+    color: var(--nord7);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+    background-color: var(--nord2);
+    border: none;
+    border-radius: 4px;
+    color: var(--nord6);
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+input[type="submit"] {
+    background-color: var(--nord8);
+    border: none;
+    border-radius: 4px;
+    color: var(--nord0);
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--nord7);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    border-bottom: 1px solid var(--nord3);
+    padding: 0.5rem 0;
+}
+
+li a {
+    color: var(--nord6);
+    text-decoration: none;
+}
+
+li a:hover {
+    color: var(--nord8);
+}
+
+li strong {
+    color: var(--nord9);
+}

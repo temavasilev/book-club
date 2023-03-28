@@ -1,0 +1,25 @@
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# SQLAlchemy files
+*.sqlite
+*.db
+
+# Logs
+*.log
+
+# IDE files
+.vscode/
+.idea/
+
+# Dependency directories
+venv/
+env/
+ENV/
+.venv/
+instance/
+
+# Other files
+.DS_Store
+*.swp

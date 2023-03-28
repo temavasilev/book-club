@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ book.title }} by {{ book.author }}</h1>
+    <h2>Reviews:</h2>
+    <ul>
+        {% for review in reviews %}
+            <li>
+                <strong>{{ review.user.username }}</strong>: {{ review.content }}
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Add your review:</h2>
+    <form method="POST" action="{{ url_for('book', book_id=book.id) }}">
+        {{ form.hidden_tag() }}
+        <label for="content">Review:</label>
+        {{ form.content }}
+        {{ form.submit }}
+    </form>
+{% endblock %}
