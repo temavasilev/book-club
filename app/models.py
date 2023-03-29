@@ -9,6 +9,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128), nullable=False)
     reviews = db.relationship('Review', backref='author', lazy='dynamic')
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
