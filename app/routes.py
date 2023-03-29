@@ -2,7 +2,7 @@ from flask import render_template, url_for, flash, redirect, request
 from flask_login import login_user, logout_user, current_user, login_required
 from run import app, db
 from app.models import User, Book, Review
-from app.forms import RegistrationForm, LoginForm, BookForm, ReviewForm
+from app.forms import RegistrationForm, LoginForm, BookForm, ReviewForm, SearchForm
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -60,6 +60,13 @@ def new_book():
     return render_template("book.html", title="New Book", form=form)
 
 
+@app.route('/book/<int:book_id>')
+def book_page(book_id):
+    book = Book.query.get_or_404(book_id)
+    reviews = Review.query.filter_by(book_id=book_id).all()
+    return render_template('book.html', book=book, reviews=reviews)
+
+
 @app.route("/review/int:book_id", methods=["GET", "POST"])
 @login_required
 def new_review(book_id):
@@ -77,3 +84,18 @@ def new_review(book_id):
         flash("Review added successfully.", "success")
         return redirect(url_for("index"))
     return render_template("review.html", title="New Review", form=form, book=book)
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    form = SearchForm()
+    if form.validate_on_submit():
+        query = form.query.data
+        books = Book.query.filter(Book.title.ilike(f"%{query}%")).all()
+        return render_template('search_results.html', books=books, query=query)
+    return render_template('search.html', form=form)
+
+@app.route('/user/<string:username>')
+def user_profile(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    reviews = Review.query.filter_by(user_id=user.id).all()
+    return render_template('user_profile.html', user=user, reviews=reviews)

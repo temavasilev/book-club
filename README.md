@@ -12,3 +12,4 @@ TODO:
 - Search for books using the openlibrary API
 - Add Goodreads reviews?
 - Spruce up the UI, especially the profile page
+- Use a JS framework to make the UI more dynamic?

@@ -40,3 +40,8 @@ class ReviewForm(FlaskForm):
         "Rating (1-5)", validators=[DataRequired()]
     )
     submit = SubmitField("Submit Review")
+
+
+class SearchForm(FlaskForm):
+    query = StringField('Search', validators=[DataRequired()])
+    submit = SubmitField('Search')

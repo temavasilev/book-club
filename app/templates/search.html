@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Search Books</h1>
+    <form method="POST" action="{{ url_for('search') }}">
+        {{ form.hidden_tag() }}
+        {{ form.query.label }} {{ form.query }}
+        {{ form.submit }}
+    </form>
+{% endblock %}
