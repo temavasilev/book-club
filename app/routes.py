@@ -99,3 +99,15 @@ def user_profile(username):
     user = User.query.filter_by(username=username).first_or_404()
     reviews = Review.query.filter_by(user_id=user.id).all()
     return render_template('user_profile.html', user=user, reviews=reviews)
+
+@app.route('/add_book', methods=['GET', 'POST'])
+@login_required
+def add_book():
+    form = BookForm()
+    if form.validate_on_submit():
+        book = Book(title=form.title.data, author=form.author.data, user_id=current_user.id)
+        db.session.add(book)
+        db.session.commit()
+        flash('Book added successfully!', 'success')
+        return redirect(url_for('book_page', book_id=book.id))
+    return render_template('add_book.html', form=form)

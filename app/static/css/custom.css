@@ -1,0 +1,35 @@
+/* Catppuccin color palette */
+:root {
+    --background-color: #2e3440; /* dark background */
+    --foreground-color: #3b4252; /* light background */
+    --comment-color: #4c566a; /* comments */
+    --red: #bf616a; /* red */
+    --orange: #d08770; /* orange */
+    --yellow: #ebcb8b; /* yellow */
+    --green: #a3be8c; /* green */
+    --cyan: #88c0d0; /* cyan */
+    --blue: #81a1c1; /* blue */
+    --violet: #b48ead; /* violet */
+    --text-color: #d8dee9; /* text color */
+  }
+  
+  /* Apply Catppuccin color palette to Bootstrap components */
+  .navbar .nav-item {
+    background-color: var(--background-color);
+  }
+  
+  .navbar a {
+    color: var(--text-color);
+    margin-right: 10px;
+  }
+  
+  .btn-primary {
+    background-color: var(--blue);
+    border-color: var(--blue);
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
